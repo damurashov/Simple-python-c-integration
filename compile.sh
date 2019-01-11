@@ -1,3 +1,5 @@
 #1/bin/sh
 
-gcc ./main.c -shared -DCPATH="/usr/include/python3.6m" -o hello.so
+swig -python -I.  main.i
+
+gcc ./main.c ./main.h ./main_wrap.c -shared -I. -I/usr/include/python3.6m -o _main.so -fpic
